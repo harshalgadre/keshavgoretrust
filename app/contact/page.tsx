@@ -70,8 +70,8 @@ export default function ContactPage() {
               </div>
               <div className="flex items-center justify-center">
                 <i className="fas fa-envelope text-primary mr-2"></i>
-                <a href="mailto:kgstmumbai@gmail.com" className="hover:text-primary">
-                  kgstmumbai@gmail.com
+                <a href="mailto:kgstmtnl@gmail.com" className="hover:text-primary">
+                  kgstmtnl@gmail.com
                 </a>
               </div>
             </div>

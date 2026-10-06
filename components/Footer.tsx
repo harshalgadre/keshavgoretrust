@@ -32,7 +32,7 @@ export default function Footer() {
                 Keshav Gore Smarak Trust, Smruti, Aare Road, Goregaon (W), Mumbai – 400 062.
                 Mobile - 93210 91313
               </p>
-              <p>Email: kgstmumbai@gmail.com</p>
+              <p>Email: kgstmtnl@gmail.com</p>
             </div>
             <div>
               <h3 className="text-xl font-bold mb-4 relative inline-block">
@@ -40,7 +40,7 @@ export default function Footer() {
                 <span className="absolute bottom-0 left-0 w-1/2 h-0.5 bg-primary"></span>
               </h3>
               <p>
-                Keshav Gore Smarak Trust, Kalyan Center, Subhash Nagar, A One Bakery Near, Teen Dongri (W),
+                Keshav Gore Smarak Trust, Kalyan Kendra, Subhash Nagar, A One Bakery Near, Teen Dongri (W),
                 Mumbai – 400 090.
                 Phone: (022) 28787386
               </p>
