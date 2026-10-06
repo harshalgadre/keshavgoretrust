@@ -43,7 +43,7 @@ export default function Header() {
           <div className="flex flex-col md:flex-row items-center mb-4 md:mb-0">
             <div className="bg-white p-2 rounded-full shadow-md mb-3 md:mb-0 md:mr-5">
               <img
-                src=""
+                src="https://cdn.phototourl.com/member/2026-10-06-cad748e5-3575-4af6-850d-68778544af82.jpg"
                 alt="Keshav Gore Smarak Trust Logo"
                 className="h-14 transition-transform hover:scale-105"
               />
