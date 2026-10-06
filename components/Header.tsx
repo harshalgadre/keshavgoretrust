@@ -1,7 +1,9 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Image from 'next/image'
 import { useLanguage } from '@/contexts/LanguageContext'
+import trustLogo from '@/data/images/logo.png'
 
 export default function Header() {
   const [currentDate, setCurrentDate] = useState('')
@@ -41,11 +43,12 @@ export default function Header() {
       <div className="bg-primary py-5 shadow-lg">
         <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
           <div className="flex flex-col md:flex-row items-center mb-4 md:mb-0">
-            <div className="bg-white p-2 rounded-full shadow-md mb-3 md:mb-0 md:mr-5">
-              <img
-                src="https://cdn.phototourl.com/member/2026-10-06-cad748e5-3575-4af6-850d-68778544af82.jpg"
+            <div className="w-24 h-24 md:w-28 md:h-28 shrink-0 bg-white p-1.5 rounded-xl shadow-md mb-3 md:mb-0 md:mr-5">
+              <Image
+                src={trustLogo}
                 alt="Keshav Gore Smarak Trust Logo"
-                className="h-14 transition-transform hover:scale-105"
+                priority
+                className="w-full h-full object-contain rounded-lg"
               />
             </div>
             <h1 className="text-white text-2xl md:text-3xl font-bold text-center md:text-left">
