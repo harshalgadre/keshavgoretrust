@@ -100,8 +100,7 @@ export default function AboutPage() {
                 <h3 className="text-2xl font-bold">Our Vision</h3>
               </div>
               <p>
-                To create a society where every individual has equal access to opportunities for growth and development,
-                regardless of their socio-economic background, gender, or other social factors.
+                To foster a society rooted in equality, inclusivity, and progressive development, where every individual is empowered to thrive with dignity, access opportunities, and contribute to a harmonious and enlightened community.
               </p>
             </div>
 
@@ -112,10 +111,13 @@ export default function AboutPage() {
                 </div>
                 <h3 className="text-2xl font-bold">Our Mission</h3>
               </div>
-              <p>
-                To empower marginalized communities through quality education, accessible healthcare, women empowerment,
-                and sustainable rural development, fostering an inclusive society where everyone can thrive.
-              </p>
+              <ul className="list-disc pl-5 space-y-3">
+                <li>To spearhead impactful initiatives in education, health, housing, sports, arts, literature, and governance, fostering holistic growth and development.</li>
+                <li>To empower marginalized communities, including scheduled castes, tribes, and women, through education, training, and employment opportunities, ensuring social dignity and independence.</li>
+                <li>To create an inclusive environment where projects and opportunities are accessible to all, promoting social harmony and unity beyond caste, religion, gender, or class distinctions.</li>
+                <li>To enhance societal awareness and enlightenment through programs, research, study groups, and publications that inspire progressive thinking and societal advancement.</li>
+                <li>To drive rural and local self-governance initiatives, enabling sustainable community development and self-reliance.</li>
+              </ul>
             </div>
           </div>
         </div>
@@ -392,4 +394,3 @@ export default function AboutPage() {
     </>
   )
 }
-

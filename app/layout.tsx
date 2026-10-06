@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import { LanguageProvider } from '@/contexts/LanguageContext'
 
 export const metadata: Metadata = {
   title: 'Events Calendar - Keshav Gore Smarak Trust',
@@ -13,8 +14,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="font-sans text-dark bg-gray-50">{children}</body>
+      <body className="font-sans text-dark bg-gray-50">
+        <LanguageProvider>{children}</LanguageProvider>
+      </body>
     </html>
   )
 }
-

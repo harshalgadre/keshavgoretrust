@@ -1,14 +1,16 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import Link from 'next/link'
+import { useLanguage } from '@/contexts/LanguageContext'
 
 export default function Header() {
   const [currentDate, setCurrentDate] = useState('')
+  const { language, setLanguage } = useLanguage()
 
   useEffect(() => {
-    setCurrentDate(new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' }))
-  }, [])
+    const locale = language === 'mr' ? 'mr-IN' : 'en-IN'
+    setCurrentDate(new Date().toLocaleDateString(locale, { day: 'numeric', month: 'long', year: 'numeric' }))
+  }, [language])
 
   return (
     <>
@@ -41,7 +43,7 @@ export default function Header() {
           <div className="flex flex-col md:flex-row items-center mb-4 md:mb-0">
             <div className="bg-white p-2 rounded-full shadow-md mb-3 md:mb-0 md:mr-5">
               <img
-                src="/images/logo.jpg"
+                src=""
                 alt="Keshav Gore Smarak Trust Logo"
                 className="h-14 transition-transform hover:scale-105"
               />
@@ -50,15 +52,16 @@ export default function Header() {
               Keshav Gore Smarak Trust
             </h1>
           </div>
-          <Link
-            href="/marathi"
+          <button
+            type="button"
+            onClick={() => setLanguage(language === 'en' ? 'mr' : 'en')}
             className="bg-secondary px-4 py-2 rounded-full text-white font-medium transition-all hover:bg-secondary-dark hover:-translate-y-1 hover:shadow-md"
+            aria-label={language === 'en' ? 'मराठीमध्ये भाषांतर करा' : 'Switch to English'}
           >
-            [ मराठी ]
-          </Link>
+            {language === 'en' ? '[ मराठी ]' : '[ English ]'}
+          </button>
         </div>
       </div>
     </>
   )
 }
-

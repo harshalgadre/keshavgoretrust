@@ -6,6 +6,15 @@ import Header from '@/components/Header'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import SubscriptionPopup from '@/components/SubscriptionPopup'
+import calendar from '@/data/calendar.json'
+
+const recentActivities = calendar.datedEvents.filter((event) => event.type === 'event')
+
+function formatActivityDate(date: string) {
+  const [year, month, day] = date.split('-').map(Number)
+  return new Intl.DateTimeFormat('en-IN', { day: 'numeric', month: 'long', year: 'numeric' })
+    .format(new Date(year, month - 1, day))
+}
 
 export default function HomePage() {
   const [showBackToTop, setShowBackToTop] = useState(false)
@@ -68,7 +77,10 @@ export default function HomePage() {
         <div
           className="absolute inset-0 opacity-30"
           style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='wave' width='100' height='20' patternUnits='userSpaceOnUse'%3E%3Cpath d='M0 10 Q 12.5 0, 25 10 T 50 10 T 75 10 T 100 10' stroke='%23AFDDFF' fill='none' stroke-width='2'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23wave)'/%3E%3C/svg%3E")`,
+            backgroundImage: `url("https://cdn.phototourl.com/member/2026-10-06-e4ceef19-fe8b-41af-91af-c9561e9b328d.jpg")`,
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
           }}
         ></div>
         <div className="container mx-auto px-4 relative z-10">
@@ -105,7 +117,7 @@ export default function HomePage() {
                 <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-primary-light/30 rounded-full"></div>
                 <div className="relative bg-white p-4 rounded-2xl shadow-xl">
                   <img
-                    src="/images/hero-image.jpg"
+                    src="https://cdn.phototourl.com/member/2026-10-06-26e966d9-f4a5-40e2-b867-423cd1ed1c85.jpg"
                     alt="Community Impact"
                     className="rounded-lg w-full h-auto"
                   />
@@ -121,119 +133,34 @@ export default function HomePage() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <div className="inline-block px-4 py-1 bg-primary-light/20 text-primary rounded-full mb-4 font-medium">
-              Our Work
+              Recent Activities
             </div>
-            <h2 className="text-3xl font-bold mb-4 text-dark">Our Recent Initiatives</h2>
+            <h2 className="text-3xl font-bold mb-4 text-dark">Recent Activities</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Discover our latest projects and how we&apos;re making a difference in communities across Maharashtra.
+              See what&apos;s coming up at Keshav Gore Smarak Trust.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Initiative 1 */}
-            <div className="bg-white rounded-2xl overflow-hidden shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-xl border border-primary-light/20">
-              <div className="relative h-56 overflow-hidden">
-                <div className="absolute top-4 left-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full z-10">
-                  Education
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {recentActivities.map((activity) => (
+              <article key={activity.id} className="bg-white rounded-2xl overflow-hidden shadow-md border border-primary-light/20 flex flex-col sm:flex-row">
+                <div className="bg-primary px-6 py-8 text-center sm:w-40 flex flex-col justify-center shrink-0">
+                  <span className="text-sm font-semibold text-white/90">{formatActivityDate(activity.date)}</span>
+                  <span className="text-3xl font-bold text-white mt-2">{activity.time}</span>
                 </div>
-                <img
-                  src="/images/education.jpg"
-                  alt="Education Initiative"
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2 text-primary">Education Scholarship Program</h3>
-                <p className="text-gray-600 mb-4">
-                  Providing financial support to 200+ underprivileged students to pursue higher education.
-                </p>
-                <Link
-                  href="/initiatives/education"
-                  className="text-secondary font-semibold inline-flex items-center group"
-                >
-                  Learn More
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 ml-1 transition-transform group-hover:translate-x-1"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                  </svg>
-                </Link>
-              </div>
-            </div>
-
-            {/* Initiative 2 */}
-            <div className="bg-white rounded-2xl overflow-hidden shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-xl border border-primary-light/20">
-              <div className="relative h-56 overflow-hidden">
-                <div className="absolute top-4 left-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full z-10">
-                  Healthcare
+                <div className="p-6">
+                  <h3 className="text-xl font-bold mb-4 text-primary">{activity.title}</h3>
+                  <p className="text-gray-600 mb-2"><span className="font-semibold">Presenter: </span>{activity.presenter}</p>
+                  <p className="text-gray-600 mb-5"><span className="font-semibold">Location: </span>{activity.location}</p>
+                  <Link href="/calendar" className="text-secondary font-semibold inline-flex items-center group">
+                    View Calendar
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-1 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                  </Link>
                 </div>
-                <img
-                  src="/images/healthcare.jpg"
-                  alt="Healthcare Initiative"
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2 text-primary">Rural Health Camps</h3>
-                <p className="text-gray-600 mb-4">
-                  Organizing free health check-ups and medicine distribution in remote villages of Maharashtra.
-                </p>
-                <Link
-                  href="/initiatives/healthcare"
-                  className="text-secondary font-semibold inline-flex items-center group"
-                >
-                  Learn More
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 ml-1 transition-transform group-hover:translate-x-1"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                  </svg>
-                </Link>
-              </div>
-            </div>
-
-            {/* Initiative 3 */}
-            <div className="bg-white rounded-2xl overflow-hidden shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-xl border border-primary-light/20">
-              <div className="relative h-56 overflow-hidden">
-                <div className="absolute top-4 left-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full z-10">
-                  Empowerment
-                </div>
-                <img
-                  src="/images/women.jpg"
-                  alt="Women Empowerment"
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2 text-primary">Women Empowerment Program</h3>
-                <p className="text-gray-600 mb-4">
-                  Training women in vocational skills to achieve financial independence and self-reliance.
-                </p>
-                <Link
-                  href="/initiatives/women"
-                  className="text-secondary font-semibold inline-flex items-center group"
-                >
-                  Learn More
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 ml-1 transition-transform group-hover:translate-x-1"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                  </svg>
-                </Link>
-              </div>
-            </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>

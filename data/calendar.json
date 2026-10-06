@@ -1,0 +1,78 @@
+{
+  "datedEvents": [
+    {
+      "id": "pidhyan-pidhya-dirghank",
+      "title": "Pidhyan Pidhya Dirghank",
+      "presenter": "Sushma Bhagwat",
+      "date": "2026-10-17",
+      "time": "To be announced",
+      "location": "To be announced",
+      "type": "event"
+    },
+    {
+      "id": "baburav-pb-sangharsh-puraskar",
+      "title": "Baburav (P.B. Sangharsh Puraskar)",
+      "presenter": "Kiran Mane",
+      "date": "2026-10-24",
+      "time": "5:00 PM",
+      "location": "Keshav Gore Sabhagruh",
+      "type": "event"
+    },
+    {
+      "id": "bandu-gore-smruti-din",
+      "title": "Bandu Gore Smruti Din",
+      "presenter": "To be announced",
+      "date": "02-02",
+      "time": "To be announced",
+      "location": "To be announced",
+      "type": "annual"
+    },
+    {
+      "id": "mrunal-tai-smruti-din",
+      "title": "Mrunal Tai Smruti Din",
+      "presenter": "To be announced",
+      "date": "07-17",
+      "time": "To be announced",
+      "location": "To be announced",
+      "type": "annual"
+    }
+  ],
+  "regularPrograms": [
+    {
+      "id": "chitranagri-sanwad",
+      "title": "Chitranagri Sanwad",
+      "presenter": "Mrunal Tai",
+      "days": "Every Sunday",
+      "weekdays": [0],
+      "time": "5:00 PM",
+      "location": "Dalan"
+    },
+    {
+      "id": "experimental-theater",
+      "title": "Experimental Theater",
+      "presenter": "To be announced",
+      "days": "Every Saturday",
+      "weekdays": [6],
+      "time": "Evening (time to be announced)",
+      "location": "To be announced"
+    },
+    {
+      "id": "acupressure",
+      "title": "Acupressure",
+      "presenter": "Sarita Naik",
+      "days": "Monday to Thursday",
+      "weekdays": [1, 2, 3, 4],
+      "time": "5:00 PM–8:30 PM",
+      "location": "Dalan"
+    },
+    {
+      "id": "kathak-classes",
+      "title": "Kathak Classes",
+      "presenter": "Gunjan Patil",
+      "days": "Monday to Wednesday",
+      "weekdays": [1, 2, 3],
+      "time": "6:30 PM–8:30 PM",
+      "location": "To be announced"
+    }
+  ]
+}
