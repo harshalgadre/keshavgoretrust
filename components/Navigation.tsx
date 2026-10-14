@@ -7,6 +7,7 @@ import { usePathname } from 'next/navigation'
 export default function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false)
+  const [isMobileProjectsOpen, setIsMobileProjectsOpen] = useState(false)
   const pathname = usePathname()
 
   const navLinks = [
@@ -23,23 +24,28 @@ export default function Navigation() {
   const serviceGroups: Array<{ label: string; href?: string; children?: Array<{ label: string; href: string }> }> = [
     { label: 'All Services', href: '/services' },
     { label: 'Dental Service', href: '/services/dental-service' },
-    { label: 'मृणाल ताई दालन', href: '/services/mrunal-tai-dalan' },
-    { label: 'य. दि. फडके प्रगत संशोधन केंद्र', href: '/services/yd-phadke-research-center' },
+    { label: 'Mrunal Tai Gallery', href: '/services/mrunal-tai-dalan' },
+    { label: 'Y. D. Phadke Advanced Research Center', href: '/services/yd-phadke-research-center' },
     {
-      label: 'ग्रंथालय',
+      label: 'Libraries',
       children: [
-        { label: 'केशव गोरे स्मारक ट्रस्ट संदर्भ', href: '/services/library-kgst-reference' },
-        { label: 'केशव गोरे स्मारक ट्रस्ट संचालित साने गुरुजी ग्रंथालय', href: '/services/library-sane-guruji' },
+        { label: 'Keshav Gore Smarak Trust Reference Library', href: '/services/library-kgst-reference' },
+        { label: 'Sane Guruji Library (operated by Keshav Gore Smarak Trust)', href: '/services/library-sane-guruji' },
       ],
     },
     {
-      label: 'अभ्यासिका',
+      label: 'Study Rooms',
       children: [
-        { label: 'केशव गोरे स्मारक ट्रस्ट आरे रोड', href: '/services/study-are-road' },
-        { label: 'केशव गोरे स्मारक ट्रस्ट कल्याण केंद्र', href: '/services/study-kalyan-center' },
+        { label: 'Keshav Gore Smarak Trust Study Room, Aarey Road', href: '/services/study-are-road' },
+        { label: 'Keshav Gore Smarak Trust Study Room, Kalyan Center', href: '/services/study-kalyan-center' },
       ],
     },
-    { label: 'केशव गोरे स्मारक ट्रस्ट सभागृह', href: '/services/trust-auditorium' },
+    { label: 'Keshav Gore Smarak Trust Auditorium', href: '/services/trust-auditorium' },
+  ]
+
+  const projectOptions = [
+    { label: 'Family Development Project (FDP)', href: '/projects#family-development-project' },
+    { label: 'Mrunal Gore Counseling Center', href: '/projects#mrunal-gore-counseling-center' },
   ]
 
   return (
@@ -96,7 +102,26 @@ export default function Navigation() {
                 ))}
               </ul>
             </li>
-            {navLinks.slice(4).map((link) => (
+            <li className="relative group">
+              <button
+                type="button"
+                aria-haspopup="true"
+                className={`flex items-center gap-2 py-5 px-4 font-medium transition-colors ${pathname.startsWith('/projects') ? 'text-secondary' : 'text-dark hover:text-secondary'}`}
+              >
+                Projects <i className="fas fa-chevron-down text-xs" aria-hidden="true"></i>
+              </button>
+              <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-secondary group-hover:w-2/3 group-focus-within:w-2/3 transition-all duration-300 -translate-x-1/2"></span>
+              <ul className="absolute left-0 top-full hidden w-72 max-w-[calc(100vw-2rem)] rounded-b-lg bg-white py-2 shadow-lg group-hover:block group-focus-within:block">
+                {projectOptions.map((project) => (
+                  <li key={project.href}>
+                    <Link href={project.href} className="block px-5 py-3 text-dark hover:bg-cream hover:text-secondary">
+                      {project.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </li>
+            {navLinks.slice(5).map((link) => (
               <li key={link.href} className="relative group">
                 <Link
                   href={link.href}
@@ -192,7 +217,28 @@ export default function Navigation() {
               </ul>
             )}
           </li>
-          {navLinks.slice(4).map((link) => (
+          <li className="border-b">
+            <button
+              type="button"
+              onClick={() => setIsMobileProjectsOpen(!isMobileProjectsOpen)}
+              aria-expanded={isMobileProjectsOpen}
+              className="flex w-full items-center justify-between py-3 hover:text-secondary"
+            >
+              Projects <i className={`fas fa-chevron-${isMobileProjectsOpen ? 'up' : 'down'} text-xs`}></i>
+            </button>
+            {isMobileProjectsOpen && (
+              <ul className="pb-2">
+                {projectOptions.map((project) => (
+                  <li key={project.href}>
+                    <Link href={project.href} onClick={() => setIsMobileMenuOpen(false)} className="block py-2 pl-4 text-sm hover:text-secondary">
+                      {project.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </li>
+          {navLinks.slice(5).map((link) => (
             <li key={link.href}>
               <Link
                 href={link.href}

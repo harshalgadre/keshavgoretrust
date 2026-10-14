@@ -5,59 +5,64 @@ import SubscriptionPopup from '@/components/SubscriptionPopup'
 
 const doctors = [
   {
-    number: '१.',
-    name: ['डॉ. ऐश्वर्या तेंडुलकर', '(बी.डी.एस.) दंत शल्य चिकित्सक', 'डॉ. भाग्यश्री मुसळे', '(बी.डी.एस.) दंत शल्य चिकित्सक'],
-    schedule: ['सोमवार ते शनिवार – सकाळी ८.३० ते सकाळी १०.३०', 'बुधवार – सायंकाळी ५.३० ते ८.००'],
+    number: '1.',
+    name: ['Dr. Aishwarya Tendulkar', '(BDS) Dental Surgeon', 'Dr. Bhagyashri Musale', '(BDS) Dental Surgeon'],
+    schedule: ['Monday to Saturday: 8:30 am–10:30 am', 'Wednesday: 5:30 pm–8:00 pm'],
   },
   {
-    number: '३.',
-    name: ['डॉ. अनुजा उत्तकर', '(बी.डी.एस.) दंत शल्य चिकित्सक'],
-    schedule: ['सोमवार ते शनिवार', 'दुपारी २ ते दुपारी ४'],
+    number: '3.',
+    name: ['Dr. Anuja Uttkar', '(BDS) Dental Surgeon'],
+    schedule: ['Monday to Saturday', '2:00 pm–4:00 pm'],
   },
   {
-    number: '४.',
-    name: ['डॉ. पूजा पोत्रे', '(बी.डी.एस.) दंत शल्य चिकित्सक'],
-    schedule: ['सोमवार ते शनिवार', 'सायंकाळी ५.३० ते रात्री ८.३०'],
+    number: '4.',
+    name: ['Dr. Pooja Potre', '(BDS) Dental Surgeon'],
+    schedule: ['Monday to Saturday', '5:30 pm–8:30 pm'],
   },
   {
-    number: '५.',
-    name: ['डॉ. प्रमिला जोशी', '(बी.डी.एस.) दंत शल्य चिकित्सक'],
-    schedule: ['सोमवार ते शनिवार', 'सायंकाळी ५.३० ते रात्री ८.३०'],
+    number: '5.',
+    name: ['Dr. Pramila Joshi', '(BDS) Dental Surgeon'],
+    schedule: ['Monday to Saturday', '5:30 pm–8:30 pm'],
   },
   {
-    number: '६.',
-    name: ['डॉ. जयेश घोडके', '(मानसोपचार तज्ञ)'],
-    schedule: ['मंगळवार आणि शुक्रवार', 'सायं. ८ ते सायं. ९.३०'],
+    number: '6.',
+    name: ['Dr. Jayesh Ghodke', 'Psychiatrist'],
+    schedule: ['Tuesday and Friday', '8:00 pm–9:30 pm'],
   },
   {
-    number: '७.',
-    name: ['डॉ. प्रविण पुनामिया', '(नेत्र चिकित्सक)'],
-    schedule: ['सोमवार', 'दुपारी १२.०० ते दुपारी १.००'],
+    number: '7.',
+    name: ['Dr. Pravin Punamia', 'Ophthalmologist'],
+    schedule: ['Monday', '12:00 pm–1:00 pm'],
   },
   {
-    number: '८.',
-    name: ['डॉ. सी.सी. चिंचाळकर', 'डॉ. पूर्वी खेर', '(नेत्र चिकित्सक)', '(त्वचारोग तज्ञ)'],
-    schedule: ['शनिवार', 'बुधवार – सायंकाळी ५.३० ते ८.००', 'सायंकाळी ६.०० ते रात्री ८.००'],
+    number: '8.',
+    name: ['Dr. C. C. Chinchalkar', 'Dr. Purvi Kher', 'Ophthalmologist', 'Dermatologist'],
+    schedule: ['Saturday', 'Wednesday: 5:30 pm–8:00 pm', '6:00 pm–8:00 pm'],
   },
   {
-    number: '१०.',
-    name: ['डॉ. अक्षय मेळाय', '(एम.डी.एस.) दंतवंगोपचार चिकित्सक (इम्प्लांट)'],
-    schedule: ['बुधवार', 'दुपारी ३.३०'],
+    number: '10.',
+    name: ['Dr. Akshay Melay', '(MDS) Endodontist (Implants)'],
+    schedule: ['Wednesday', '3:30 pm'],
   },
   {
-    number: '११.',
-    name: ['डॉ. जिग्नेश सेजपाल', '(एम.डी.एस.) दंतशल्य चिकित्सक'],
-    schedule: ['४ था शनिवार', 'सकाळी ८.३० ते सकाळी १०.००'],
+    number: '11.',
+    name: ['Dr. Jignesh Sejpal', '(MDS) Dental Surgeon'],
+    schedule: ['Fourth Saturday', '8:30 am–10:00 am'],
   },
   {
-    number: '१२.',
-    name: ['डॉ. अनिकेत चंदाणीया', '(एम.डी.एस.) दंतवंगोपचार चिकित्सक'],
-    schedule: ['१ ला आणि ३ रा गुरुवार – दुपारी २ ते दुपारी ४', '२ रा आणि ४ था गुरुवार – सायं. ६ ते रात्री ८'],
+    number: '12.',
+    name: ['Dr. Aniket Chandaniya', '(MDS) Endodontist'],
+    schedule: ['First and third Thursday: 2:00 pm–4:00 pm', 'Second and fourth Thursday: 6:00 pm–8:00 pm'],
   },
   {
-    number: '१३.',
-    name: ['डॉ. हर्षा नलावडे', '(एम.डी.एस.) दंतशल्य चिकित्सक'],
-    schedule: ['मंगळवार', 'सायंकाळी ६.०० ते रात्री ८.००'],
+    number: '13.',
+    name: ['Dr. Harsha Nalawade', '(MDS) Dental Surgeon'],
+    schedule: ['Tuesday', '6:00 pm–8:00 pm'],
+  },
+  {
+    number: '14.',
+    name: ['Dr. Chaitanya Mantri', 'Occupational Therapist'],
+    schedule: ['Monday: 5:00 pm–7:00 pm', 'Wednesday and Thursday: 6:00 pm–8:00 pm', 'Saturday: 10:00 am–12:00 pm'],
   },
 ]
 
@@ -69,10 +74,10 @@ export default function DentalServicePage() {
 
       <section className="bg-primary py-14 sm:py-20">
         <div className="container mx-auto px-4 text-center">
-          <p className="text-lg font-semibold mb-2" lang="mr">केशव गोरे स्मारक ट्रस्ट</p>
-          <h1 className="text-3xl sm:text-5xl font-bold" lang="mr">दंत विभाग व आरोग्य केंद्र</h1>
-          <a href="tel:9321091313" className="inline-block mt-5 text-lg font-semibold hover:text-secondary" lang="mr">
-            भ्रमणध्वनी क्र. 9321091313
+          <p className="text-lg font-semibold mb-2">Keshav Gore Smarak Trust</p>
+          <h1 className="text-3xl sm:text-5xl font-bold">Dental Department and Health Center</h1>
+          <a href="tel:9321091313" className="inline-block mt-5 text-lg font-semibold hover:text-secondary">
+            Phone: 9321091313
           </a>
         </div>
       </section>
@@ -80,12 +85,12 @@ export default function DentalServicePage() {
       <main className="py-12 sm:py-16">
         <div className="container mx-auto px-4">
           <div className="overflow-x-auto rounded-lg shadow-lg bg-white">
-            <table className="w-full min-w-[720px] border-collapse text-left" lang="mr">
+            <table className="w-full min-w-[720px] border-collapse text-left">
               <thead>
                 <tr className="bg-cream">
-                  <th scope="col" className="border-b p-4 font-bold">अ.क्र.</th>
-                  <th scope="col" className="border-b p-4 font-bold">डॉक्टरांचे नाव व विशेषता</th>
-                  <th scope="col" className="border-b p-4 font-bold">वेळ</th>
+                  <th scope="col" className="border-b p-4 font-bold">No.</th>
+                  <th scope="col" className="border-b p-4 font-bold">Doctor and Specialty</th>
+                  <th scope="col" className="border-b p-4 font-bold">Schedule</th>
                 </tr>
               </thead>
               <tbody>
